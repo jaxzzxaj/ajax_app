@@ -4,20 +4,20 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(content:params[:content],checked:false)
-    render json:{post: post}
+    post = Post.create(content: params[:content], checked: false)
+    render json:{ post: post }
   end
 
   def checked
-    binding.pry
-  end
     post = Post.find(params[:id])
     if post.checked
-      post.updated(checked: false)
+      post.update(checked: false)
     else
-      post.updated(checked: true)
+      post.update(checked: true)
     end
 
-    item =Post.find(params[:id])
-    render json:{ post: item }
+    item = Post.find(params[:id])
+    render json: { post: item }
+  end
 end
+
