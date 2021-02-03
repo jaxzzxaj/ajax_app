@@ -5,7 +5,7 @@
 <% end %>
 
 <% @posts.each do |post| %>
-<div class="post">
+<div class="post"　data-id=<%= post.id %> data-check=<%= post.checked %>>
   <div class="post-content">
     <%= post.content %>
   </div>
